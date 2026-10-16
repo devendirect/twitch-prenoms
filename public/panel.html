@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devine l'année · panneau</title>
+<link rel="stylesheet" href="/vendor/fonts.css">
+<link rel="stylesheet" href="/css/panel.css">
+<script type="module" src="/js/panel.js"></script>
+</head>
+<body>
+<div id="simulation" class="simulation" hidden>SIMULATION — aucune connexion à Twitch, scores en mémoire</div>
+<main>
+  <header>
+    <h1>Devine l'année de mon prénom</h1>
+    <div id="chat" class="chat"></div>
+  </header>
+
+  <section id="connexion" class="carte" hidden>
+    <h2>Mot de passe du panneau</h2>
+    <form id="form-jeton">
+      <input id="jeton" type="password" autocomplete="current-password" aria-label="Mot de passe du panneau (PANEL_TOKEN)">
+      <button type="submit">Valider</button>
+    </form>
+  </section>
+
+  <section class="carte">
+    <h2>Partie</h2>
+    <form id="form-partie" class="reglages">
+      <label>Manches <input id="manches" type="number" required></label>
+      <label>Durée pour répondre (s) <input id="ouvert" type="number" required></label>
+      <button id="lancer" type="submit">Lancer la partie</button>
+    </form>
+    <div class="actions">
+      <button id="passer" type="button">Passer la manche</button>
+      <button id="arreter" type="button" class="danger">Arrêter la partie</button>
+    </div>
+    <p id="message" class="message" role="status"></p>
+  </section>
+
+  <section class="carte">
+    <h2>Manche en cours <span id="phase" class="phase"></span></h2>
+    <div id="manche"></div>
+  </section>
+
+  <div class="colonnes">
+    <section class="carte">
+      <h2>Prénoms à venir</h2>
+      <ol id="a-venir" class="liste"></ol>
+    </section>
+    <section class="carte">
+      <h2>Classement de la partie</h2>
+      <ol id="classement" class="liste"></ol>
+    </section>
+  </div>
+
+  <section class="carte discret">
+    <div id="soiree"></div>
+    <p>Overlay pour OBS : <code>/overlay.html</code> (format bloc), <code>?format=plein</code>,
+      ou deux sources <code>?format=deux&amp;carte=prenom</code> et <code>?format=deux&amp;carte=graphique</code>.</p>
+  </section>
+</main>
+</body>
+</html>

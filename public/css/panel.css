@@ -1,0 +1,70 @@
+/* Panneau du streamer : page locale ordinaire, pas un overlay. */
+:root {
+  --fond: #0e1033;
+  --carte: #16195a;
+  --texte: #ffffff;
+  --doux: #c8cbf2;
+  --accent: #ffd23f;
+  --filet: #2c3180;
+  --danger: #ff6b5b;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font: 16px/1.5 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+main { max-width: 960px; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+h1 { font-size: 24px; margin: 0; }
+h2 { font-size: 18px; margin: 0 0 12px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.chat, .discret, .vide { color: var(--doux); }
+.phase { font: 600 15px 'IBM Plex Mono', monospace; color: var(--accent); }
+
+.simulation {
+  background: var(--accent);
+  color: var(--carte);
+  text-align: center;
+  font-weight: 700;
+  padding: 8px 16px;
+}
+
+.carte { background: var(--carte); border-radius: 16px; padding: 16px 20px; }
+.colonnes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+.reglages, .actions, #form-jeton { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.actions { margin-top: 12px; }
+label { display: flex; flex-direction: column; gap: 4px; color: var(--doux); font-size: 14px; }
+input {
+  font: inherit;
+  width: 120px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--filet);
+  background: var(--fond);
+  color: var(--texte);
+}
+#jeton { width: min(320px, 100%); }
+button {
+  font: 600 16px 'IBM Plex Sans', system-ui, sans-serif;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: var(--carte);
+  cursor: pointer;
+}
+button.danger { background: var(--danger); }
+button:disabled { opacity: 0.4; cursor: default; }
+
+.message { min-height: 1.5em; margin: 12px 0 0; }
+.message.erreur { color: var(--danger); }
+.titre-manche { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+.reponse { font-family: 'IBM Plex Mono', monospace; color: var(--accent); margin: 0 0 4px; }
+#manche p { margin-top: 0; }
+.liste { margin: 0; padding-left: 24px; }
+.liste li { padding: 2px 0; overflow-wrap: anywhere; }
+code { font-family: 'IBM Plex Mono', monospace; color: var(--doux); overflow-wrap: anywhere; }

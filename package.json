@@ -1,0 +1,29 @@
+{
+  "name": "prenoms",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "start": "tsx --env-file-if-exists=.env src/main.ts",
+    "simu": "tsx scripts/simu.ts",
+    "preparer": "tsx scripts/preparer.ts",
+    "audit": "npm audit --omit=dev --audit-level=high"
+  },
+  "dependencies": {
+    "socle": "file:../socle"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.4",
+    "jsdom": "26.1.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.1",
+    "vitest": "5.0.3"
+  }
+}

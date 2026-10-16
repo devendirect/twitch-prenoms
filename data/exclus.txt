@@ -1,0 +1,4 @@
+# Prénoms à ne jamais tirer en manche (ils restent consultables par !prenom).
+# Un prénom par ligne, écrit normalement : la casse ne compte pas, l'accent si
+# (« Kevin » et « Kévin » sont deux prénoms dans le fichier de l'Insee).
+# Relancer « npm run preparer » après modification.

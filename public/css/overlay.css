@@ -1,0 +1,303 @@
+/*
+ * Thème Plateau (BRIEF.md, section 6 ; maquette/Overlay.dc.html). Page 1920 × 1080 sur
+ * fond transparent. Aucun texte sous 28 px (vérifié par un test sur ce fichier).
+ */
+:root {
+  --panneau: #16195a;
+  --ombre: 0 14px 0 #0a0c33;
+  --texte: #ffffff;
+  --doux: #c8cbf2;
+  --accent: #ffd23f;
+  --sur-accent: #16195a;
+  --barre: #6e78ff;
+  --axe: #8a90e0;
+  --filet: #2c3180;
+  --pastille: #ffffff;
+  --pastille-rang: #3b42c4;
+  --pastille-doux: #4a4f9a;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+html,
+body {
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: transparent;
+}
+
+#scene {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  color: var(--texte);
+  font-family: var(--sans);
+  font-size: 28px;
+}
+
+/* ─── Panneaux ───────────────────────────────────────────────────────────── */
+
+.panneau {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: var(--panneau);
+  border-radius: 36px;
+  box-shadow: var(--ombre);
+  overflow: hidden;
+}
+.panneau.plein { left: 64px; top: 64px; width: 1792px; height: 952px; padding: 56px; gap: 32px; }
+.panneau.bloc { left: 1152px; top: 352px; width: 720px; height: 680px; padding: 32px; gap: 12px; }
+.panneau.carte-a { left: 48px; top: 48px; width: 600px; height: 400px; padding: 32px; gap: 12px; }
+.panneau.carte-b { left: 912px; top: 432px; width: 960px; height: 600px; padding: 32px; gap: 12px; }
+.panneau.carte-prenom { left: 48px; bottom: 48px; width: 640px; padding: 28px 32px 24px; gap: 0; }
+
+.corps { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 32px; }
+
+.entete {
+  flex: none;
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.plein .entete { height: 40px; }
+.entete > div { overflow: hidden; text-overflow: ellipsis; }
+.clair { color: var(--texte); }
+.doux { color: var(--doux); }
+.accent { color: var(--accent); }
+.mono { font-family: var(--mono); }
+
+.source {
+  flex: none;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 2px solid var(--filet);
+  font-size: 28px;
+  line-height: 34px;
+  color: var(--doux);
+  text-wrap: balance;
+}
+.plein .source { padding-top: 16px; line-height: 36px; white-space: nowrap; }
+
+/* ─── Prénom ─────────────────────────────────────────────────────────────── */
+
+.nom {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.nom span { white-space: nowrap; }
+.sexe { font-size: 32px; color: var(--doux); }
+.sexe.grand { font-size: 40px; }
+.sexe.moyen { font-size: 30px; }
+.bloc .sexe, .carte-prenom .sexe { font-size: 28px; }
+.carte-prenom .sexe { margin-top: 4px; }
+
+.centre { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; }
+.centre .nom { align-items: center; }
+.plein .centre { gap: 28px; }
+.carte-a .centre { gap: 10px; }
+.carte-a .centre.a-gauche { align-items: flex-start; text-align: left; }
+.carte-a .centre.a-gauche .nom { align-items: flex-start; }
+
+.ligne-nom { flex: none; height: 220px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.ligne-nom.scores { height: 180px; }
+.ligne-nom.h108 { height: 108px; gap: 24px; }
+.ligne-nom.h72 { height: 72px; gap: 24px; }
+.ligne-nom .gauche { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+/* ─── Temps ──────────────────────────────────────────────────────────────── */
+
+.temps { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.plein .temps { width: 420px; gap: 18px; }
+.chrono {
+  font-family: var(--mono);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--sur-accent);
+  background: var(--accent);
+  border-radius: 24px;
+}
+.chrono.grand { font-size: 104px; padding: 10px 24px; }
+.chrono.moyen { font-size: 56px; padding: 4px 16px; }
+.chrono.entete { font-size: 28px; padding: 4px 12px; border-radius: 18px; }
+.chrono.fige { opacity: 0.55; }
+.nb-reponses { font-size: 28px; font-weight: 500; white-space: nowrap; }
+.plein .nb-reponses { font-size: 32px; }
+
+.piste { flex: none; height: 10px; background: var(--filet); border-radius: 6px; overflow: hidden; }
+.piste.epaisse { height: 12px; }
+.piste.fine { height: 8px; }
+.plein .temps .piste { align-self: stretch; }
+.piste i { display: block; height: 100%; width: 0; background: var(--accent); }
+.carte-prenom .piste { margin: 14px 0 10px; }
+.ligne-temps { flex: none; height: 64px; display: flex; align-items: center; gap: 20px; }
+.piste.etire { flex: 1; }
+
+.pousse-bas { flex: 1; min-height: 0; display: flex; align-items: flex-end; padding-top: 8px; }
+
+/* ─── Graphique ──────────────────────────────────────────────────────────── */
+
+.graphe { position: relative; flex: none; }
+.graphe > * { position: absolute; }
+.barre { background: var(--barre); border-radius: 10px 10px 0 0; }
+.graphe.revele .barre { opacity: 0.28; }
+.trace { left: 0; top: 0; overflow: visible; }
+.aire { fill: rgba(255, 210, 63, 0.16); stroke: none; animation: apparaitre 0.6s 3.4s both; }
+.courbe {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: tracer 4s linear forwards;
+}
+.pointille { stroke: var(--texte); stroke-width: 2px; stroke-dasharray: 6 6; }
+.tige { stroke: var(--texte); stroke-width: 3px; }
+.point { fill: var(--accent); stroke: var(--panneau); stroke-width: 5px; }
+.apparait { animation: apparaitre 0.4s 4s both; }
+.etiquette-pic {
+  height: 48px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background: var(--accent);
+  color: var(--sur-accent);
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 28px;
+  white-space: nowrap;
+  border-radius: 24px;
+}
+.axe { height: 3px; background: var(--axe); }
+.graduation { font-family: var(--mono); font-size: 28px; line-height: 36px; color: var(--doux); white-space: nowrap; }
+.graduation.centre { transform: translateX(-50%); }
+.invite {
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+  font-size: 32px;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.rond {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  background: var(--accent);
+  color: var(--sur-accent);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1;
+}
+.pastille {
+  height: 52px;
+  box-sizing: border-box;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--pastille);
+  color: var(--sur-accent);
+  border-radius: 26px;
+  white-space: nowrap;
+  font-size: 28px;
+}
+.pastille.a-gauche { transform: translateX(-100%); }
+.pastille .rang { font-family: var(--mono); font-weight: 600; color: var(--pastille-rang); }
+.pastille .qui { font-weight: 500; }
+.pastille .annee { font-family: var(--mono); color: var(--pastille-doux); }
+
+@keyframes tracer { to { stroke-dashoffset: 0; } }
+@keyframes apparaitre { from { opacity: 0; } to { opacity: 1; } }
+
+/* ─── Listes ─────────────────────────────────────────────────────────────── */
+
+.listes { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.listes.colonnes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; }
+.liste { display: flex; flex-direction: column; }
+.libelle { height: 40px; display: flex; align-items: flex-end; font-size: 28px; font-weight: 600; color: var(--doux); }
+.liste.classement .libelle { height: 56px; }
+.colonnes .libelle, .colonnes .liste.classement .libelle { height: 48px; align-items: flex-start; }
+.rangee { height: 42px; display: flex; align-items: center; gap: 14px; font-size: 28px; border-bottom: 2px solid var(--filet); }
+.liste.ecarts .rangee { height: 38px; border-bottom: 0; }
+.liste.ecarts { padding-top: 4px; }
+.liste.ecarts .rond { width: 36px; height: 36px; }
+.liste.gagnants .rond { width: 36px; height: 36px; }
+.plein .rangee { height: 72px; gap: 20px; font-size: 32px; }
+.plein .liste.classement .rangee { height: 60px; font-size: 30px; }
+.plein .liste.gagnants .rond { width: 48px; height: 48px; }
+.rangee .qui { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.liste.classement .qui { font-weight: 400; }
+.rangee .points { width: 90px; text-align: right; font-weight: 600; }
+.plein .rangee .points { width: 110px; }
+.rangee .ecart { width: 56px; text-align: right; }
+.rangee .rang { width: 36px; flex: none; font-weight: 600; }
+.plein .rangee .rang { width: 48px; }
+.rangee .total { font-weight: 600; min-width: 112px; text-align: right; }
+.rangee .victoires { white-space: nowrap; }
+
+.puce-pic {
+  flex: none;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 40px;
+  padding: 10px 24px;
+  color: var(--sur-accent);
+  background: var(--accent);
+  border-radius: 24px;
+  white-space: nowrap;
+}
+.puce-pic.entete { font-size: 28px; padding: 2px 14px; border-radius: 18px; }
+.carte-a .piste { margin-top: 4px; }
+
+/* ─── Accueil et fin ─────────────────────────────────────────────────────── */
+
+.accueil { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.accueil .grand-titre { font-size: 56px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+.accueil.plein .grand-titre { font-size: 104px; }
+.invite-texte { font-size: 32px; color: var(--doux); }
+.carte-a .invite-texte { font-size: 30px; }
+.accueil .liste.classement { margin-top: 8px; }
+
+/* ─── Carte !prenom ──────────────────────────────────────────────────────── */
+
+.carte-prenom .haut { display: flex; align-items: center; gap: 16px; height: 44px; font-size: 28px; }
+.carte-prenom .commande {
+  flex: none;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 28px;
+  padding: 2px 14px;
+  background: var(--accent);
+  color: var(--sur-accent);
+  border-radius: 24px;
+}
+.carte-prenom .demande { flex: 1; min-width: 0; color: var(--doux); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.carte-prenom .graphe { margin-top: 14px; }
+.carte-prenom .source { margin-top: 12px; }

@@ -1,0 +1,9 @@
+node_modules/
+data/brut/
+.env
+*.db
+*.db-*
+data/prenoms.json
+data/tirage.json
+maquette/
+BRIEF.md
