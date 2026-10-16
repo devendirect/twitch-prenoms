@@ -16,7 +16,7 @@
     "audit": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
-    "socle": "file:../socle"
+    "socle": "github:devendirect/twitch-socle#v0.1.0"
   },
   "devDependencies": {
     "@types/node": "22.20.4",

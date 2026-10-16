@@ -63,7 +63,7 @@ Effectifs arrondis à 5 par l'Insee. La mention s'affiche en permanence sur l'ov
 
 ## Développer avec le socle
 
-Le jeu dépend du [socle](https://github.com/stanBPS/socle) à une version fixe (voir
+Le jeu dépend du [socle](https://github.com/devendirect/twitch-socle) à une version fixe (voir
 `package.json`). Pour modifier le socle et le jeu en même temps, cloner les deux côte à
 côte, puis dans `prenoms/` :
 
