@@ -4,8 +4,6 @@ Mini-jeu de chat Twitch : un prénom s'affiche (« Camille, fille »), le chat a
 pour taper l'année où il a été le plus donné en France, puis la vraie courbe depuis 1900
 se dessine et les plus proches gagnent des points. Données réelles de l'Insee.
 
-Le pourquoi de chaque choix est dans [`BRIEF.md`](BRIEF.md).
-
 ## Installer
 
 Node 22 ou plus.
